@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane fx:id="splashPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="250.0" prefWidth="440.0" style="-fx-background-color: #C93F3E;" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.haitomns.redsoil.redsoilMainController">
+   <children>
+      <Label layoutX="174.0" layoutY="43.0" text="RedSoil" textFill="#e4e4e4">
+         <font>
+            <Font name="System Bold" size="30.0" />
+         </font>
+      </Label>
+      <Label layoutX="173.0" layoutY="88.0" text="Make your blood work easy" textFill="#e4e4e4">
+         <font>
+            <Font name="System Italic" size="18.0" />
+         </font>
+      </Label>
+      <Label layoutX="174.0" layoutY="117.0" text="Version 1.0" textFill="#e4e4e4" />
+      <Label fx:id="splashProgressLabel" layoutX="174.0" layoutY="190.0" text="Connecting to database..." textFill="#e4e4e4" />
+      <ImageView fitHeight="164.0" fitWidth="191.0" layoutX="10.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../com.haitomns.images/redSoilLogoRed.png" />
+         </image>
+      </ImageView>
+      <ProgressBar fx:id="splashProgressBar" layoutX="172.0" layoutY="171.0" prefWidth="200.0" />
+   </children>
+</AnchorPane>
