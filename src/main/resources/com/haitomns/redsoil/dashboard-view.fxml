@@ -1,0 +1,847 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXToggleButton?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane fx:id="dashboard_borderpane" prefHeight="768.0" prefWidth="1366.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.haitomns.redsoil.dashboardController">
+    <left>
+        <Pane prefHeight="718.0" prefWidth="200.0" style="-fx-background-color: #BEBEBE;">
+            <children>
+            <AnchorPane layoutX="-14.0" prefHeight="723.0" prefWidth="215.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 0 50 0 0;">
+               <children>
+                        <JFXButton fx:id="dashboardButton" buttonType="RAISED" layoutX="37.0" layoutY="84.0" mnemonicParsing="false" onAction="#dashboardNavigation" prefHeight="45.0" prefWidth="155.0" style="-fx-background-color: #1F743E; -fx-background-radius: 100;" text="Dashboard" textAlignment="CENTER" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../com.haitomns.images/dashboard.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="bloodDonationButton" buttonType="RAISED" layoutX="15.0" layoutY="165.0" mnemonicParsing="false" onAction="#dashboardNavigation" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #C93F3E; -fx-alignment: center-left;" text="Blood Donation" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../com.haitomns.images/blood.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="findBloodButton" buttonType="RAISED" layoutX="15.0" layoutY="225.0" mnemonicParsing="false" onAction="#dashboardNavigation" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #C93F3E; -fx-alignment: center-left;" text="Find Blood" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../com.haitomns.images/find.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="userAccountButton" buttonType="RAISED" layoutX="15.0" layoutY="285.0" mnemonicParsing="false" onAction="#dashboardNavigation" prefHeight="45.0" prefWidth="200.0" style="-fx-background-color: #C93F3E; -fx-alignment: center-left;" text="User Account" textFill="WHITE">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                            <graphic>
+                                <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../../../com.haitomns.images/user.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                        </JFXButton>
+               </children>
+            </AnchorPane>
+            </children>
+        </Pane>
+    </left>
+    <top>
+      <AnchorPane onMouseDragged="#title_mouse_dragged" onMousePressed="#title_mouse_pressed" BorderPane.alignment="CENTER">
+         <children>
+               <Label layoutX="42.0" layoutY="10.0" text="RedSoil" textFill="#c93f3e">
+                   <font>
+                       <Font name="System Bold" size="24.0" />
+                   </font>
+               </Label>
+               <ImageView fitHeight="40.0" fitWidth="69.0" layoutY="3.0" pickOnBounds="true" preserveRatio="true">
+                   <Image url="@../../../com.haitomns.images/redSoilLogoWhite.png" />
+               </ImageView>
+            <ImageView fx:id="dashboardCloseButton" fitHeight="45.0" fitWidth="25.0" layoutX="1327.0" layoutY="15.0" onMouseClicked="#dashboard_close_button" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="15.0" AnchorPane.topAnchor="15.0">
+               <image>
+                  <Image url="@../../../com.haitomns.images/closeIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dashboardMaximizeButton" fitHeight="45.0" fitWidth="25.0" layoutX="1248.0" layoutY="15.0" onMouseClicked="#dashboard_maximize_button" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="45.0" AnchorPane.topAnchor="15.0">
+               <image>
+                  <Image url="@../../../com.haitomns.images/maximize.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="dashboardMinimizeButton" fitHeight="45.0" fitWidth="25.0" layoutX="1283.0" layoutY="15.0" onMouseClicked="#dashboard_minimize_button" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="75.0" AnchorPane.topAnchor="15.0">
+               <image>
+                  <Image url="@../../../com.haitomns.images/minimizeIcon.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+    </top>
+    <center>
+        <Pane>
+            <children>
+                  <ScrollPane fx:id="userAccountScrollPane" prefHeight="718.0" prefWidth="1166.0">
+                      <content>
+                          <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1166.0" style="-fx-background-color: #bebebe;">
+                              <children>
+                                  <Label layoutX="14.0" layoutY="14.0" text="Company Details" textFill="#c93f3e">
+                                      <font>
+                                          <Font name="System Bold Italic" size="18.0" />
+                                      </font>
+                                  </Label>
+                                  <Line endX="310.0" layoutX="115.0" layoutY="41.0" startX="-100.0" stroke="#c93f3e" />
+                                  <Label layoutX="20.0" layoutY="78.0" text="BloodBank Name" textFill="#c93f3e">
+                                      <font>
+                                          <Font size="13.0" />
+                                      </font>
+                                  </Label>
+                                  <TextField fx:id="companyNameField" layoutX="148.0" layoutY="70.0" prefHeight="35.0" prefWidth="280.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10; -fx-background-color: #bebebe;" />
+                                  <Label layoutX="20.0" layoutY="128.0" text="BloodBank Address" textFill="#c93f3e">
+                                      <font>
+                                          <Font size="13.0" />
+                                      </font>
+                                  </Label>
+                                  <TextField fx:id="companyAddressField" layoutX="148.0" layoutY="120.0" prefHeight="35.0" prefWidth="280.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10; -fx-background-color: #bebebe;" />
+                                  <Label layoutX="20.0" layoutY="228.0" text="Username" textFill="#c93f3e">
+                                      <font>
+                                          <Font size="13.0" />
+                                      </font>
+                                  </Label>
+                                  <TextField fx:id="companyUsernameField" layoutX="148.0" layoutY="220.0" prefHeight="35.0" prefWidth="280.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10; -fx-background-color: #bebebe;" />
+                                  <Label layoutX="20.0" layoutY="278.0" text="Password" textFill="#c93f3e">
+                                      <font>
+                                          <Font size="13.0" />
+                                      </font>
+                                  </Label>
+                                  <PasswordField fx:id="companyPasswordField" layoutX="148.0" layoutY="270.0" prefHeight="35.0" prefWidth="280.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10; -fx-background-color: #bebebe;" />
+                                  <JFXButton buttonType="RAISED" layoutX="361.0" layoutY="324.0" mnemonicParsing="false" onAction="#companyUpdateButtonAction" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;" text="Update" textFill="WHITE">
+                                      <font>
+                                          <Font name="System Bold" size="14.0" />
+                                      </font>
+                                  </JFXButton>
+                                  <Label layoutX="20.0" layoutY="178.0" text="BloodBank Phone" textFill="#c93f3e">
+                                      <font>
+                                          <Font size="13.0" />
+                                      </font>
+                                  </Label>
+                                  <TextField fx:id="companyPhoneField" layoutX="148.0" layoutY="170.0" prefHeight="35.0" prefWidth="280.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10; -fx-background-color: #bebebe;" />
+                        <Label layoutX="500.0" layoutY="13.0" text="About Software," textFill="#c93f3e">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="214.33331298828125" layoutX="601.0" layoutY="40.0" startX="-100.0" stroke="#c93f3e" />
+                        <Label layoutX="811.0" layoutY="103.0" textFill="#c93f3e">
+                           <font>
+                              <Font name="System Bold" size="24.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="14.0" layoutY="374.0" text="Backup and Restore" textFill="#c93f3e">
+                           <font>
+                              <Font name="System Bold Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Line endX="310.0" layoutX="113.0" layoutY="402.0" startX="-100.0" stroke="#c93f3e" />
+                        <JFXButton fx:id="backupButtton" buttonType="RAISED" layoutX="20.0" layoutY="427.0" mnemonicParsing="false" onAction="#backupButtonClick" prefHeight="45.0" prefWidth="155.0" style="-fx-background-color: #1F743E; -fx-background-radius: 100;" text="Backup" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../com.haitomns.images/icons8_data_backup_26px.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <JFXButton fx:id="restoreButton" buttonType="RAISED" layoutX="269.0" layoutY="427.0" mnemonicParsing="false" onAction="#restoreButtonClick" prefHeight="45.0" prefWidth="155.0" style="-fx-background-color: #1F743E; -fx-background-radius: 100;" text="Restore" textAlignment="CENTER" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                           <graphic>
+                              <ImageView fitHeight="30.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../../../com.haitomns.images/icons8_database_restore_32px_1.png" />
+                                 </image>
+                              </ImageView>
+                           </graphic>
+                        </JFXButton>
+                        <ImageView fitHeight="88.0" fitWidth="88.0" layoutX="499.0" layoutY="65.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../../com.haitomns.images/redSoilLogoRed.png" />
+                           </image>
+                        </ImageView>
+                        <Label layoutX="602.0" layoutY="65.0" text="RedSoil" textFill="#c93f3e">
+                           <font>
+                              <Font name="System Bold" size="30.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="602.0" layoutY="106.0" text="Make your blood work easy" textFill="#c93f3e">
+                           <font>
+                              <Font name="System Italic" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="602.0" layoutY="138.0" text="Version 1.0" textFill="#c93f3e" />
+                              </children>
+                          </AnchorPane>
+                      </content>
+                  </ScrollPane>
+            <HBox fx:id="bloodDonationHbox" prefHeight="718.0" prefWidth="1168.0">
+               <children>
+                        <TabPane prefHeight="718.0" prefWidth="450.0" stylesheets="@../../../com.haitomns.css/tabbedPane.css" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="New Donor">
+                                    <content>
+                                        <ScrollPane prefWidth="450.0">
+                                            <content>
+                                                <AnchorPane prefHeight="1618.0" prefWidth="450.0">
+                                                    <children>
+                                          <Label layoutX="16.0" layoutY="14.0" text="Personal Details" textFill="#c93f3e">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                                        <Line endX="300.0" layoutX="115.0" layoutY="40.0" startX="-100.0" stroke="#c93f3e" />
+                                          <Label layoutX="15.0" layoutY="60.0" text="Organization" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="donationOrganizationField" layoutX="94.0" layoutY="50.0" prefHeight="35.0" prefWidth="321.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="110.0" text="Donor Name" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="donorNameField" layoutX="95.0" layoutY="100.0" prefHeight="35.0" prefWidth="320.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="15.0" layoutY="160.0" text="Gender" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="donorGenderField" layoutX="95.0" layoutY="150.0" prefHeight="35.0" prefWidth="150.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="258.0" layoutY="160.0" text="Age" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                          <TextField fx:id="donorAgeField" layoutX="292.0" layoutY="150.0" onKeyReleased="#ageNumberInput" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="15.0" layoutY="210.0" text="Occupation" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="donorOccupationField" layoutX="95.0" layoutY="200.0" onKeyReleased="#phoneNumberInput" prefHeight="35.0" prefWidth="320.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="260.0" text="Address" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="donorAddressField" layoutX="95.0" layoutY="250.0" prefHeight="35.0" prefWidth="320.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="310.0" text="Phone" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                          <TextField fx:id="donorPhoneField" layoutX="95.0" layoutY="300.0" prefHeight="35.0" prefWidth="320.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="360.0" text="Email" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="donorEmailField" layoutX="95.0" layoutY="350.0" prefHeight="35.0" prefWidth="320.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="410.0" text="Health Status" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font name="System Bold Italic" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Line endX="300.0" layoutX="115.0" layoutY="438.0" startX="-100.0" stroke="#c93f3e" />
+                                                        <Label layoutX="15.0" layoutY="447.0" text="Have you donated blood previously?" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <RadioButton fx:id="donatedNoRadio" layoutX="16.0" layoutY="480.0" mnemonicParsing="false" onAction="#donatedPreviouslySelection" selected="true" text="NO" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                             <toggleGroup>
+                                                <ToggleGroup fx:id="previouslyDonatedBlood" />
+                                             </toggleGroup>
+                                                        </RadioButton>
+                                                        <RadioButton fx:id="donatedYesRadio" layoutX="86.0" layoutY="480.0" mnemonicParsing="false" onAction="#donatedPreviouslySelection" text="YES then when" textFill="#c93f3e" toggleGroup="$previouslyDonatedBlood">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </RadioButton>
+                                                        <DatePicker fx:id="previouslyDonatedDate" disable="true" layoutX="213.0" layoutY="472.0" onDragDropped="#companyUpdateButtonAction" prefHeight="35.0" prefWidth="200.0" style="-fx-border-color: #c93f3e; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="515.0" prefHeight="20.0" prefWidth="399.0" text="Do you suffer from or have suffered from any of" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Label layoutX="15.0" layoutY="536.0" prefHeight="20.0" prefWidth="400.0" text="the following diseases?" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="14.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <CheckBox fx:id="malaria" layoutX="15.0" layoutY="567.0" mnemonicParsing="false" text="Malaria" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="leprosy" layoutX="170.0" layoutY="567.0" mnemonicParsing="false" text="Leprosy" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="highBloodPressure" layoutX="280.0" layoutY="567.0" mnemonicParsing="false" text="High Blood Pressure" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="lotusPitta" layoutX="15.0" layoutY="597.0" mnemonicParsing="false" text="Lotus Pitta" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="diabetes" layoutX="170.0" layoutY="597.0" mnemonicParsing="false" text="Diabetes" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="preSurgery" layoutX="280.0" layoutY="597.0" mnemonicParsing="false" text="Pre Surgery " textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="tuberculosis" layoutX="15.0" layoutY="628.0" mnemonicParsing="false" text="Tuberculosis" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="pregnancy" layoutX="170.0" layoutY="628.0" mnemonicParsing="false" text="Pregnancy " textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="drugAbuse" layoutX="280.0" layoutY="628.0" mnemonicParsing="false" text="Drug Abuse" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="heartDisease" layoutX="15.0" layoutY="658.0" mnemonicParsing="false" text="Heart Disease" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                          <CheckBox fx:id="pneumonia" layoutX="170.0" layoutY="658.0" mnemonicParsing="false" text="Pneumonia" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </CheckBox>
+                                                        <CheckBox fx:id="jaundice" layoutX="280.0" layoutY="658.0" mnemonicParsing="false" text="Jaundice" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="kidneyDisease" layoutX="15.0" layoutY="686.0" mnemonicParsing="false" text="Kidney Disease" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="aids" layoutX="170.0" layoutY="686.0" mnemonicParsing="false" text="AIDS" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="faintingSpells" layoutX="280.0" layoutY="686.0" mnemonicParsing="false" text="Fainting Spells" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                                        <CheckBox fx:id="cutaneousDisease" layoutX="15.0" layoutY="718.0" mnemonicParsing="false" text="Cutaneous Disease" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </CheckBox>
+                                          <CheckBox fx:id="std" layoutX="170.0" layoutY="718.0" mnemonicParsing="false" text="STD" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <CheckBox fx:id="menstruation" layoutX="280.0" layoutY="718.0" mnemonicParsing="false" text="Menstruation" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <CheckBox fx:id="foreignVisit" layoutX="15.0" layoutY="747.0" mnemonicParsing="false" text="Foreign Visit" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <CheckBox fx:id="others" layoutX="170.0" layoutY="747.0" mnemonicParsing="false" text="Others" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </CheckBox>
+                                          <Label layoutX="15.0" layoutY="782.0" text="Patient Details" textFill="#c93f3e">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Line endX="300.0" layoutX="116.0" layoutY="811.0" startX="-100.0" stroke="#c93f3e" />
+                                          <Label layoutX="15.0" layoutY="832.0" text="Patient Name" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="patientNameField" layoutX="115.0" layoutY="824.0" prefHeight="35.0" prefWidth="300.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="15.0" layoutY="880.0" text="Donor ID" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="donorIdField" layoutX="115.0" layoutY="872.0" prefHeight="35.0" prefWidth="300.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="915.0" text="Vitals Reading" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font name="System Bold Italic" size="18.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <Line endX="300.0" layoutX="116.0" layoutY="942.0" startX="-100.0" stroke="#c93f3e" />
+                                                        <Label layoutX="15.0" layoutY="964.0" text="Weight" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="weight" layoutX="90.0" layoutY="956.0" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="230.0" layoutY="964.0" text="B.P" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="bp" layoutX="295.0" layoutY="956.0" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                                        <Label layoutX="15.0" layoutY="1007.0" text="Hb%" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                                        <TextField fx:id="hb" layoutX="89.0" layoutY="999.0" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="229.0" layoutY="1008.0" text="Resp Sys." textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXToggleButton fx:id="respSys" contentDisplay="GRAPHIC_ONLY" layoutX="296.0" layoutY="988.0" prefHeight="58.0" prefWidth="118.0" text="Resp. Sys" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                                        <Label layoutX="15.0" layoutY="1050.0" text="C.V.S" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                          <JFXToggleButton fx:id="cvs" contentDisplay="GRAPHIC_ONLY" layoutX="89.0" layoutY="1031.0" prefHeight="58.0" prefWidth="118.0" text="cvs" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                                        <Label layoutX="230.0" layoutY="1050.0" text="GI System" textFill="#c93f3e">
+                                                            <font>
+                                                                <Font size="13.0" />
+                                                            </font>
+                                                        </Label>
+                                          <JFXToggleButton fx:id="giSystem" contentDisplay="GRAPHIC_ONLY" layoutX="296.0" layoutY="1031.0" prefHeight="58.0" prefWidth="118.0" text="gi_system" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                          <Label layoutX="15.0" layoutY="1095.0" text="Fit" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXToggleButton fx:id="fit" contentDisplay="GRAPHIC_ONLY" layoutX="88.0" layoutY="1077.0" prefHeight="58.0" prefWidth="118.0" text="fit" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                          <Label layoutX="229.0" layoutY="1096.0" text="Other" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="other" layoutX="295.0" layoutY="1088.0" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="15.0" layoutY="1141.0" text="Unit" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <TextField fx:id="unit" layoutX="86.0" layoutY="1133.0" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="16.0" layoutY="1201.0" text="Blood Testing" textFill="#c93f3e">
+                                             <font>
+                                                <Font name="System Bold Italic" size="18.0" />
+                                             </font>
+                                          </Label>
+                                          <Line endX="300.0" layoutX="116.0" layoutY="1229.0" startX="-100.0" stroke="#c93f3e" />
+                                          <Label layoutX="15.0" layoutY="1254.0" text="ABO" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="aboField" layoutX="85.0" layoutY="1246.0" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="230.0" layoutY="1254.0" text="RH" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <ChoiceBox fx:id="rhField" layoutX="295.0" layoutY="1246.0" prefHeight="35.0" prefWidth="120.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10;" />
+                                          <Label layoutX="15.0" layoutY="1297.0" text="HIV" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXToggleButton fx:id="hiv" contentDisplay="GRAPHIC_ONLY" layoutX="86.0" layoutY="1278.0" prefHeight="58.0" prefWidth="118.0" text="hiv" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                          <Label layoutX="230.0" layoutY="1297.0" text="HBsAg" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXToggleButton fx:id="hbsag" contentDisplay="GRAPHIC_ONLY" layoutX="295.0" layoutY="1278.0" prefHeight="58.0" prefWidth="118.0" text="hbsag" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                          <Label layoutX="15.0" layoutY="1340.0" text="HCV" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXToggleButton fx:id="hcv" contentDisplay="GRAPHIC_ONLY" layoutX="86.0" layoutY="1321.0" prefHeight="58.0" prefWidth="118.0" text="hcv" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                          <Label layoutX="230.0" layoutY="1340.0" text="VDRL" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <JFXToggleButton fx:id="vdrl" contentDisplay="GRAPHIC_ONLY" layoutX="295.0" layoutY="1321.0" prefHeight="58.0" prefWidth="118.0" text="vdrl" textFill="#c93f3e" toggleColor="#c93f3e" toggleLineColor="#ff5a4e" />
+                                          <Label layoutX="15.0" layoutY="1389.0" text="Expiry Date" textFill="#c93f3e">
+                                             <font>
+                                                <Font size="13.0" />
+                                             </font>
+                                          </Label>
+                                          <DatePicker fx:id="bloodExpiryDateField" layoutX="86.0" layoutY="1381.0" onDragDropped="#companyUpdateButtonAction" prefHeight="35.0" prefWidth="124.0" style="-fx-border-color: #c93f3e; -fx-border-radius: 10;" />
+                                                        <JFXButton buttonType="RAISED" layoutX="291.0" layoutY="1433.0" mnemonicParsing="false" onAction="#clear_button_click" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;" text="Clear" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="System Bold" size="14.0" />
+                                                            </font>
+                                                        </JFXButton>
+                                                        <JFXButton buttonType="RAISED" layoutX="351.0" layoutY="1433.0" mnemonicParsing="false" onAction="#bloodDonationSubmitButtonAction" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;" text="Submit" textFill="WHITE">
+                                                            <font>
+                                                                <Font name="System Bold" size="14.0" />
+                                                            </font>
+                                                        </JFXButton>
+                                                    </children>
+                                                </AnchorPane>
+                                            </content>
+                                        </ScrollPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+                        <TabPane prefHeight="718.0" prefWidth="715.0" stylesheets="@../../../com.haitomns.css/tabbedPane.css" tabClosingPolicy="UNAVAILABLE">
+                            <tabs>
+                                <Tab text="Donor Data Display">
+                                    <content>
+                                        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" style="-fx-background-color: #ffffff;">
+                                 <children>
+                                    <TableView fx:id="donorDataTable" layoutX="23.0" layoutY="31.0" prefHeight="555.0" prefWidth="578.0" stylesheets="@../../../com.haitomns.css/tablestyle.css" AnchorPane.leftAnchor="20.0" AnchorPane.topAnchor="20.0">
+                                       <columns>
+                                          <TableColumn fx:id="donorIdColumnAdd" prefWidth="70.0" sortType="DESCENDING" text="Donor ID" />
+                                          <TableColumn fx:id="donorNameColumnAdd" prefWidth="120.66668701171875" text="Donor Name" />
+                                          <TableColumn fx:id="donorGenderColumnAdd" prefWidth="65.99993896484375" text="Gender" />
+                                          <TableColumn fx:id="donorPhoneColumnAdd" minWidth="20.0" prefWidth="103.3333740234375" text="Phone" />
+                                          <TableColumn fx:id="aboColumnAdd" prefWidth="84.0" text="ABO" />
+                                          <TableColumn fx:id="rhColumnAdd" prefWidth="60.0" text="RH" />
+                                          <TableColumn fx:id="unitColumnAdd" prefWidth="71.333251953125" text="Unit" />
+                                       </columns>
+                                    </TableView>
+                                 </children>
+                              </AnchorPane>
+                                    </content>
+                                </Tab>
+                            </tabs>
+                        </TabPane>
+               </children>
+            </HBox>
+            <ScrollPane fx:id="findBloodScrollPane" prefHeight="718.0" prefWidth="1166.0">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="700.0" prefWidth="1166.0" style="-fx-background-color: #bebebe;">
+                     <children>
+                        <TableView fx:id="findBloodTable" layoutX="25.0" layoutY="180.0" prefHeight="419.0" prefWidth="1003.0" style="-fx-alignment: CENTER;" stylesheets="@../../../com.haitomns.css/tablestyle.css" AnchorPane.bottomAnchor="101.0" AnchorPane.leftAnchor="25.0" AnchorPane.rightAnchor="138.0" AnchorPane.topAnchor="180.0">
+                          <columns>
+                            <TableColumn fx:id="donorIdColumn" prefWidth="70.0" text="Donor ID" />
+                            <TableColumn fx:id="donorNameColumn" prefWidth="200.0" text="Donor Name" />
+                              <TableColumn fx:id="donorPhoneColumn" prefWidth="123.0" text="Phone" />
+                              <TableColumn fx:id="aboColumn" prefWidth="47.0" text="ABO" />
+                              <TableColumn fx:id="rhColumn" prefWidth="42.0" text="RH" />
+                              <TableColumn fx:id="unitColumn" prefWidth="65.0" text="Unit" />
+                              <TableColumn fx:id="creationDateColumn" prefWidth="183.0" text="Creation Date " />
+                              <TableColumn fx:id="expiryDateColumn" prefWidth="123.0" text="Expiry Date" />
+                              <TableColumn fx:id="viewButtonColumn" minWidth="0.0" prefWidth="61.0" text="View" />
+                              <TableColumn fx:id="removeButtonColumn" minWidth="0.0" prefWidth="84.0" text="Remove" />
+                          </columns>
+                        </TableView>
+                        <Line endX="900.0" layoutX="126.0" layoutY="101.0" startX="-100.0" stroke="#c93f3e" />
+                        <Label layoutX="25.0" layoutY="65.0" text="Find Blood" textFill="#c93f3e">
+                           <font>
+                              <Font name="System Bold" size="18.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="26.0" layoutY="125.0" text="Donor ID" textFill="#c93f3e">
+                           <font>
+                              <Font size="13.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="findDonorIdInput" layoutX="96.0" layoutY="117.0" prefHeight="35.0" prefWidth="320.0" style="-fx-border-color: #C93F3E; -fx-border-radius: 10; -fx-background-color: #bebebe;" />
+                        <JFXButton buttonType="RAISED" layoutX="474.0" layoutY="119.0" mnemonicParsing="false" onAction="#find_donor_button_click" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;" text="Find" textFill="WHITE">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="866.0" layoutY="119.0" mnemonicParsing="false" onAction="#removed_view" style="-fx-background-color: #1F743E; -fx-background-radius: 10;" text="View Removed Blood" textFill="WHITE" AnchorPane.rightAnchor="140.66666666666674">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                        <JFXButton buttonType="RAISED" layoutX="728.0" layoutY="119.0" mnemonicParsing="false" onAction="#view_all_blood" style="-fx-background-color: #1F743E; -fx-background-radius: 10;" text="View All Blood" textFill="WHITE" AnchorPane.rightAnchor="322.66666666666663">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </JFXButton>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </ScrollPane>
+                <ScrollPane fx:id="dashboardScrollPane" prefHeight="718.0" prefWidth="1166.0">
+                    <content>
+                        <AnchorPane prefHeight="700.0" prefWidth="1166.0" style="-fx-background-color: #bebebe;">
+                            <children>
+                                 <Label layoutX="21.0" layoutY="35.0" text="Dashboard" textFill="#c93f3e">
+                                     <font>
+                                         <Font name="System Bold" size="24.0" />
+                                     </font>
+                                 </Label>
+                                 <Label layoutX="21.0" layoutY="77.0" text="Blood Details" textFill="#c93f3e">
+                                     <font>
+                                         <Font name="System Bold" size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <Line endX="679.3333129882812" layoutX="122.0" layoutY="104.0" startX="-100.0" stroke="#c93f3e" />
+                                 <Pane fx:id="a_plus_pane" layoutX="21.0" layoutY="122.0" onMouseClicked="#a_plus_panel_clicked" onMouseEntered="#pane_enter_a_plus" onMouseExited="#pane_exit_a_plus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <Label layoutX="14.0" layoutY="6.0" text="A+" textFill="WHITE">
+                                         <font>
+                                             <Font name="System Bold" size="36.0" />
+                                         </font>
+                                     </Label>
+                                     <Label fx:id="a_plus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                         <font>
+                                             <Font name="System Bold" size="18.0" />
+                                         </font>
+                                     </Label>
+                                 </Pane>
+                                 <Pane fx:id="b_plus_pane" layoutX="217.0" layoutY="122.0" onMouseClicked="#b_plus_panel_clicked" onMouseEntered="#pane_enter_b_plus" onMouseExited="#pane_exit_b_plus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <Label layoutX="14.0" layoutY="6.0" text="B+" textFill="WHITE">
+                                         <font>
+                                             <Font name="System Bold" size="36.0" />
+                                         </font>
+                                     </Label>
+                                     <Label fx:id="b_plus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                         <font>
+                                             <Font name="System Bold" size="18.0" />
+                                         </font>
+                                     </Label>
+                                 </Pane>
+                                 <Pane fx:id="ab_plus_pane" layoutX="416.0" layoutY="122.0" onMouseClicked="#ab_plus_panel_clicked" onMouseEntered="#pane_enter_ab_plus" onMouseExited="#pane_exit_ab_plus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <children>
+                                         <Label layoutX="14.0" layoutY="6.0" text="AB+" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="36.0" />
+                                             </font>
+                                         </Label>
+                                         <Label fx:id="ab_plus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="18.0" />
+                                             </font>
+                                         </Label>
+                                     </children>
+                                 </Pane>
+                                 <Pane fx:id="o_plus_pane" layoutX="620.0" layoutY="122.0" onMouseClicked="#o_plus_panel_clicked" onMouseEntered="#pane_enter_o_plus" onMouseExited="#pane_exit_o_plus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <children>
+                                         <Label layoutX="14.0" layoutY="6.0" text="O+" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="36.0" />
+                                             </font>
+                                         </Label>
+                                         <Label fx:id="o_plus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="18.0" />
+                                             </font>
+                                         </Label>
+                                     </children>
+                                 </Pane>
+                                 <Pane fx:id="a_minus_pane" layoutX="21.0" layoutY="246.0" onMouseClicked="#a_minus_panel_clicked" onMouseEntered="#pane_enter_a_minus" onMouseExited="#pane_exit_a_minus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <children>
+                                         <Label layoutX="14.0" layoutY="6.0" text="A-" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="36.0" />
+                                             </font>
+                                         </Label>
+                                         <Label fx:id="a_minus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="18.0" />
+                                             </font>
+                                         </Label>
+                                     </children>
+                                 </Pane>
+                                 <Pane fx:id="b_minus_pane" layoutX="217.0" layoutY="246.0" onMouseClicked="#b_minus_panel_clicked" onMouseEntered="#pane_enter_b_minus" onMouseExited="#pane_exit_b_minus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <children>
+                                         <Label layoutX="14.0" layoutY="6.0" text="B-" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="36.0" />
+                                             </font>
+                                         </Label>
+                                         <Label fx:id="b_minus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="18.0" />
+                                             </font>
+                                         </Label>
+                                     </children>
+                                 </Pane>
+                                 <Pane fx:id="ab_minus_pane" layoutX="416.0" layoutY="246.0" onMouseEntered="#pane_enter_ab_minus" onMouseExited="#pane_exit_ab_minus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <children>
+                                         <Label layoutX="14.0" layoutY="6.0" onMouseClicked="#ab_minus_panel_clicked" text="AB-" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="36.0" />
+                                             </font>
+                                         </Label>
+                                         <Label fx:id="ab_minus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="18.0" />
+                                             </font>
+                                         </Label>
+                                     </children>
+                                 </Pane>
+                                 <Pane fx:id="o_minus_pane" layoutX="620.0" layoutY="246.0" onMouseClicked="#o_minus_panel_clicked" onMouseEntered="#pane_enter_o_minus" onMouseExited="#pane_exit_o_minus" prefHeight="105.0" prefWidth="185.0" style="-fx-background-color: #C93F3E; -fx-background-radius: 10;">
+                                     <children>
+                                         <Label layoutX="14.0" layoutY="6.0" text="O-" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="36.0" />
+                                             </font>
+                                         </Label>
+                                         <Label fx:id="o_minus_number" layoutX="93.0" layoutY="70.0" text="0 Pouches" textAlignment="RIGHT" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="18.0" />
+                                             </font>
+                                         </Label>
+                                     </children>
+                                 </Pane>
+                                 <Label layoutX="828.0" layoutY="76.0" text="Blood Status" textFill="#1982c4">
+                                     <font>
+                                         <Font name="System Bold" size="18.0" />
+                                     </font>
+                                 </Label>
+                                 <Line endX="120.0" layoutX="929.0" layoutY="103.0" startX="-100.0" stroke="#1982c4" />
+                                 <Pane fx:id="total_donor_pane" layoutX="828.0" layoutY="122.0" onMouseClicked="#total_donor_panel_clicked" onMouseEntered="#pane_enter_total_donor" onMouseExited="#pane_exit_total_donor" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #1982C4; -fx-background-radius: 10;">
+                                     <children>
+                                         <Label layoutX="7.0" layoutY="14.0" text="Total Donors" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="14.0" />
+                                             </font>
+                                         </Label>
+                                         <Label fx:id="total_donor_number" layoutX="44.0" layoutY="50.0" text="0" textAlignment="RIGHT" textFill="WHITE">
+                                             <font>
+                                                 <Font name="System Bold" size="18.0" />
+                                             </font>
+                                         </Label>
+                                     </children>
+                                 </Pane>
+                        <Pane fx:id="active_pane" layoutX="953.0" layoutY="122.0" onMouseClicked="#total_active_donor_panel_clicked" onMouseEntered="#pane_enter_total_active_donor" onMouseExited="#pane_exit_total_active_donor" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #1982C4; -fx-background-radius: 10;" AnchorPane.rightAnchor="113.0">
+                           <children>
+                              <Label layoutX="7.0" layoutY="14.0" text="Active Blood" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="active_blood_number" layoutX="44.0" layoutY="50.0" text="0" textAlignment="RIGHT" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="expired_pane" layoutX="828.0" layoutY="249.0" onMouseClicked="#total_expired_donor_panel_clicked" onMouseEntered="#pane_enter_total_expired_donor" onMouseExited="#pane_exit_total_expired_donor" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #1982C4; -fx-background-radius: 10;">
+                           <children>
+                              <Label layoutX="3.0" layoutY="14.0" text="Expired Blood" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="expired_blood_number" layoutX="44.0" layoutY="50.0" text="0" textAlignment="RIGHT" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="953.0" layoutY="249.0" prefHeight="100.0" prefWidth="100.0" style="-fx-background-color: #1F743E; -fx-background-radius: 10;" AnchorPane.rightAnchor="113.0">
+                           <children>
+                              <Label layoutX="17.0" layoutY="14.0" text="Total Unit" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="14.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="total_unit_number" layoutX="44.0" layoutY="50.0" text="0" textAlignment="RIGHT" textFill="WHITE">
+                                 <font>
+                                    <Font name="System Bold" size="18.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <TableView fx:id="dashboardBloodTable" layoutX="21.0" layoutY="382.0" prefHeight="233.0" prefWidth="1031.0" stylesheets="@../../../com.haitomns.css/tablestyle.css">
+                           <columns>
+                              <TableColumn fx:id="donorIdColumnDB" prefWidth="70.0" text="Donor ID" />
+                              <TableColumn fx:id="donorNameColumnDB" prefWidth="119.9999771118164" text="Donor Name" />
+                              <TableColumn fx:id="donorPhoneColumnDB" prefWidth="137.3333282470703" text="Phone" />
+                              <TableColumn fx:id="aboColumnDB" prefWidth="49.3333740234375" text="ABO" />
+                              <TableColumn fx:id="rhColumnDB" prefWidth="46.00006103515625" text="RH" />
+                              <TableColumn fx:id="unitColumnDB" prefWidth="52.000030517578125" text="Unit" />
+                              <TableColumn fx:id="creationDateColumnDB" prefWidth="156.66668701171875" text="Creation Date " />
+                              <TableColumn fx:id="expiryDateColumnDB" prefWidth="190.66656494140625" text="Expiry Date" />
+                              <TableColumn fx:id="viewButtonDBColumn" prefWidth="87.3333740234375" text="View" />
+                              <TableColumn fx:id="removeButtonDBColumn" minWidth="0.0" prefWidth="115.999755859375" text="Remove" />
+                           </columns>
+                        </TableView>
+                            </children>
+                        </AnchorPane>
+                    </content>
+                </ScrollPane>
+            </children>
+        </Pane>
+    </center>
+</BorderPane>
